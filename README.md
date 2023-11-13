@@ -36,7 +36,8 @@ bash
 
 ./gradlew test
 
-## Report Screnshot
+## Report Screenshot
 
-Capture.JPG
+![image](https://github.com/Fayrose96/dmoney-Rest-Assured/assets/143695839/5fc45869-aa25-4957-bc58-080aa587a0e7)
+
 
