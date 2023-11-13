@@ -21,9 +21,9 @@ public class UserTestRunner extends Setup {
         UserModel userModel=new UserModel();
         userModel.setName(faker.name().fullName());
         userModel.setEmail(faker.internet().emailAddress());
-        userModel.setPassword("1273");
-        userModel.setPhone_number("01598"+Utils.generateRandomId(100000,999999));
-        userModel.setNid("987654321");
+        userModel.setPassword("1063");
+        userModel.setPhone_number("01512"+Utils.generateRandomId(100000,999999));
+        userModel.setNid("122346921");
         userModel.setRole("Customer");
         user.createUser(prop.getProperty("token"), userModel);
     }
