@@ -8,21 +8,11 @@ import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
+
 
 import static io.restassured.RestAssured.given;
 
 public class User {
-    Properties prop;
-    public User() throws IOException {
-        initConfig();
-    }
-    public void initConfig() throws IOException {
-        prop=new Properties();
-        FileInputStream fileInputStream=new FileInputStream("./src/test/resources/config.properties");
-        prop.load(fileInputStream);
-    }
-
     public static String callingLoginAPI(UserModel model) throws ConfigurationException {
         RestAssured.baseURI="http://dmoney.roadtocareer.net";
         Response res= given().contentType("application/json")
@@ -39,20 +29,13 @@ public class User {
         return token;
     }
 
-    @Test
-    public void createUser() throws ConfigurationException {
+
+    public void createUser(String token,UserModel userModel) throws ConfigurationException {
             RestAssured.baseURI= "http://dmoney.roadtocareer.net";
-            Faker faker=new Faker();
-            UserModel userModel=new UserModel();
-            userModel.setName(faker.name().fullName());
-            userModel.setEmail(faker.internet().emailAddress());
-            userModel.setPassword("1273");
-            userModel.setPhone_number("01598"+Utils.generateRandomId(100000,999999));
-            userModel.setNid("987654321");
-            userModel.setRole("Customer");
+
 
             Response res= given().contentType("application/json")
-                    .header("Authorization",prop.getProperty("token"))
+                    .header("Authorization",token)
                     .header("X-AUTH-SECRET-KEY","ROADTOSDET")
                     .body(userModel)
                     .when()
@@ -67,13 +50,12 @@ public class User {
         Utils.setEnvVar("userId", String.valueOf(userId));
 
     }
-    @Test
-    public void searchUser() throws InterruptedException {
+    public static void searchUser(String token, String userId) throws InterruptedException {
         Thread.sleep(3000);
         RestAssured.baseURI="http://dmoney.roadtocareer.net";
-        Response res=given().contentType("application/json").header("Authorization",prop.getProperty("token"))
+        Response res=given().contentType("application/json").header("Authorization",token)
                 .when()
-                .get("/user/search/id/"+prop.getProperty("userId"));
+                .get("/user/search/id/"+userId);
         System.out.println(res.asString());
 
     }
