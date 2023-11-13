@@ -40,4 +40,5 @@ bash
 
 ![image](https://github.com/Fayrose96/dmoney-Rest-Assured/assets/143695839/5fc45869-aa25-4957-bc58-080aa587a0e7)
 
+![image](https://github.com/Fayrose96/dmoney-Rest-Assured/assets/143695839/0959f7cf-1444-4699-90de-46d366e214db)
 
