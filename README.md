@@ -16,5 +16,5 @@ These tests are designed to validate the functionality of key API endpoints in D
 
 1. Clone the repository:
 
-   ```bash
+   ``bash
    git clone https://github.com/your-username/dmoney-rest-assured-tests.git
