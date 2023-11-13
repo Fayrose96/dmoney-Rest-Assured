@@ -36,4 +36,7 @@ bash
 
 ./gradlew test
 
+## Report Screnshot
+
+Capture.JPG
 
